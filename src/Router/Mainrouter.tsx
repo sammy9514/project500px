@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Homescreen } from "../Pages/Homescreen";
 import { Layout } from "../Common/Layout";
+import Upload from "../Pages/Upload";
 
 export const Mainrouter = createBrowserRouter([
   {
@@ -12,5 +13,9 @@ export const Mainrouter = createBrowserRouter([
         element: <Homescreen />,
       },
     ],
+  },
+  {
+    path: "upload",
+    element: <Upload />,
   },
 ]);

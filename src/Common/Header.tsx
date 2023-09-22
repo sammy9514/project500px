@@ -11,6 +11,7 @@ import { IoArrowUp } from "react-icons/io5";
 import { Dropdown } from "../Props/Dropdown";
 import { DropdownTwo } from "../Props/DropdownTwo";
 import { Button } from "../Props/Buttons";
+import { NavLink } from "react-router-dom";
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
@@ -151,6 +152,17 @@ export const Header: React.FC = () => {
               <AiOutlineCompass style={{ fontSize: "28px" }} />
               Discover
             </P2>
+            <NavLink
+              to="/upload"
+              style={{
+                textDecoration: "none",
+                padding: "20px 20px",
+                backgroundColor: "dodgerblue",
+                fontSize: "18px",
+                color: "white",
+                borderRadius: "50%",
+              }}
+            ></NavLink>
             <P3>
               <IoPersonCircleSharp
                 style={{ fontSize: "35px", color: "gray" }}
