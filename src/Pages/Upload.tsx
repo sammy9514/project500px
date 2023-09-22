@@ -82,17 +82,6 @@ const Button2 = styled.button<{ bg: string; cursor: string }>`
   outline: none;
   border-radius: 5px;
   transition: all 350ms;
-  animation: shake 350ms 700ms infinite;
-  @keyframes shake {
-    0% {
-      transform: translateX(20px);
-      transition: 500ms ease-in-out;
-    }
-    100% {
-      transform: translateX(-20px);
-      transition: 500ms ease-in-out;
-    }
-  }
   cursor: ${(props) => props.cursor};
   margin-top: 10px;
   :hover {
