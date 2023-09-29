@@ -175,6 +175,7 @@ const Holder = styled.div`
   width: 90%;
   color: #5d5d5dd9;
   line-height: 0.4;
+  margin-top: 60px;
   /* background-color: red; */
   /* padding-left: 50px; */
 
@@ -183,7 +184,7 @@ const Holder = styled.div`
     /* align-items: center; */
     flex-wrap: wrap;
     flex-direction: column;
-    height: 10%;
+    height: 100%;
 
     /* justify-content: center; */
   }
