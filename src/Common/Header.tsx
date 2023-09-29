@@ -12,6 +12,8 @@ import { Dropdown } from "../Props/Dropdown";
 import { DropdownTwo } from "../Props/DropdownTwo";
 import { Button } from "../Props/Buttons";
 import { NavLink } from "react-router-dom";
+import { useColorChange } from "../Common/useColor";
+import { useGlobalContext } from "../Common/useContext";
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
@@ -19,6 +21,14 @@ export const Header: React.FC = () => {
   const [showThree, setShowThree] = useState(false);
   const [showFour, setShowFour] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { colorChange, dark } = useColorChange();
+  const { isBoolean, toggleBoolean } = useGlobalContext();
+
+  let [on, off] = useState(false);
+
+  const toggle = () => {
+    off(!on);
+  };
   const showMenu = () => {
     setShow(true);
   };
@@ -57,11 +67,16 @@ export const Header: React.FC = () => {
 
   return (
     <div>
-      <Container>
-        <Top>
+      <Container color={isBoolean ? "#282828" : "white"}>
+        <Top color={isBoolean ? "white" : "black"}>
           <Wrap_1>
             <Left>
-              <Logo>
+              <Logo
+                onClick={() => {
+                  toggle();
+                  toggleBoolean();
+                }}
+              >
                 <svg
                   id="logo_svg"
                   data-name="Logo SVG"
@@ -275,6 +290,7 @@ const Top = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  color: ${(props) => props.color};
 
   @media (min-width: 900px) {
     height: 60px;
@@ -285,6 +301,7 @@ const Top = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100px;
+  background-color: ${(props) => props.color};
 
   @media (min-width: 900px) {
     height: 60px;

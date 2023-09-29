@@ -27,56 +27,42 @@ export const Footer = () => {
         <Holder>
           <Company>
             <h2>Company</h2>
-            Newsroom
-            <br />
-            <br />
-            About us
-            <br />
-            <br />
-            Careers
+            <p>Newsroom</p>
+            <p>About us Careers</p>
           </Company>
           <Community>
             <h2>Community</h2>
-            Popular photos
-            <br />
-            <br />
-            Editors' Choice
-            <br />
-            <br />
-            Quests Portfolio
+            <p>Popular photos</p>
+            <p>Quests</p>
+            <p>Portfolio</p>
           </Community>
           <Licensing>
             <h2>Licensing</h2>
-            About Licensing
-            <br />
-            <br />
-            Become a Contributor
-            <br />
-            <br />
-            Submission requirements
-            <br />
-            <br />
-            Content types
-            <br />
-            <br />
-            Distribution
+            <p>About</p>
+            <p>Licensing</p>
+            <p>Become a Contributor</p>
+            <p>Submission requirements</p>
+            <p>Content types</p>
+            <p> Distribution</p>
           </Licensing>
           <Social>
             <h2>Social</h2>
-            <FaFacebookF />
-            Facebook
-            <br />
-            <br />
-            <FaTwitter />
-            Twitter
-            <br />
-            <br />
-            <RiInstagramLine />
-            Instagram
-            <br />
-            <br />
-            <FaPinterest />
-            Pinterest
+            <div style={{ display: "flex", gap: "10px" }}>
+              <FaFacebookF />
+              Facebook
+            </div>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <FaTwitter />
+              Twitter
+            </div>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <RiInstagramLine />
+              Instagram
+            </div>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <FaPinterest />
+              Pinterest
+            </div>
           </Social>
           <Download>
             <h2>Download the app</h2>
@@ -99,66 +85,124 @@ const P = styled.div`
 
 const Download = styled.div`
   /* background-color: #e7e541; */
-  min-height: 30%;
-
-  width: 30%;
-
-  img {
-    width: 150px;
-    max-width: 100%;
-  }
+  /* height: 370px;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    height: auto;
+  } */
 `;
 
 const Social = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   /* background-color: #b5eb36; */
-  min-height: 30%;
+  height: 370px;
+  width: 260px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  text-align: left;
 
-  width: 30%;
+  @media (max-width: 768px) {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Licensing = styled.div`
   /* background-color: #5ad8d8; */
-  min-height: 30vh;
-  width: 30%;
+  min-height: 360px;
+  width: 260px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Community = styled.div`
   /* background-color: #44b97f; */
-  min-height: 30%;
-  width: 30%;
+  height: 370px;
+  width: 270px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Company = styled.div`
   /* background-color: aqua; */
-  min-height: 30%;
+  height: 370px;
+  width: 270px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
 
-  width: 30%;
+  @media (max-width: 768px) {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Holder = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  min-height: 100%;
+  justify-content: center;
   align-items: center;
   padding-top: 40px;
   gap: 20px;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   width: 90%;
+  color: #5d5d5dd9;
+  line-height: 0.4;
   /* background-color: red; */
-  padding-left: 50px;
+  /* padding-left: 50px; */
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    /* align-items: flex-start; */
+    /* align-items: center; */
     flex-wrap: wrap;
-    /* flex-direction: column; */
+    flex-direction: column;
+    height: 10%;
+
+    /* justify-content: center; */
   }
+
+  /* background-color: red;
+  width: 90%;
+  flex-wrap: wrap; */
 `;
 
 const Main = styled.div`
   /* background-color: burlywood; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   height: 50vh;
   width: 100%;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
   @media screen and (max-width: 768px) {
     height: auto;
@@ -184,7 +228,7 @@ const Button = styled.button`
   border-radius: 40px;
   border: none;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: -10px;
   /* width: 200px; */
 
   &:hover {
@@ -192,17 +236,18 @@ const Button = styled.button`
   }
 
   @media screen and (max-width: 768px) {
+    margin-bottom: 19px;
   }
 `;
 
 const Wrap = styled.div`
   /* background-color: bisque; */
-  min-height: 30vh;
+  min-height: 50vh;
   width: 50%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  gap: 30px;
   h1 {
     color: white;
     text-align: center;
@@ -221,7 +266,12 @@ const Wrap = styled.div`
     h1 {
       color: white;
       text-align: center;
-      font-size: 30px;
+      font-size: 20px;
+    }
+    p {
+      color: white;
+      text-align: center;
+      font-size: 14px;
     }
   }
 `;
@@ -229,7 +279,7 @@ const Wrap = styled.div`
 const Container = styled.div`
   background-color: rgb(69, 69, 124);
   width: 100%;
-  height: 35vh;
+  min-height: 47vh;
   display: flex;
   justify-content: center;
   align-items: center;

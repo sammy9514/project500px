@@ -1,8 +1,27 @@
 import { styled } from "styled-components";
 import dog from "../Assets/dogheader.png";
 import { Button } from "../Props/Buttons";
+import { useEffect, useState } from "react";
+import { BsArrowUp } from "react-icons/bs";
 
 export const Hero = () => {
+  const [scroll, setScroll] = useState(false);
+
+  const scrollUp = () => {
+    if (window.pageYOffset > 100) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+
+  const scrollT = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollUp);
+  });
   return (
     <div>
       <Container>
@@ -46,9 +65,29 @@ export const Hero = () => {
           </Holdw>
         </Wra>
       </Cont>
+      <ScrollBtn
+        onClick={scrollT}
+        style={{ display: scroll ? "flex" : "none" }}
+      >
+        <BsArrowUp />
+      </ScrollBtn>
     </div>
   );
 };
+
+const ScrollBtn = styled.div`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.241) 0px 0px 5px 3px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+`;
 
 const Cont = styled.div`
   display: none;

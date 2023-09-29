@@ -26,7 +26,9 @@ const EditorsChoice = () => {
             </Ick>
             <H1>Editors' Choice</H1>
           </Textcontent>
-          <Img src={pics} />
+          <D>
+            <Img src={pics} />
+          </D>
         </Container>
         <SecondContainer>
           <Box>
@@ -45,35 +47,35 @@ const EditorsChoice = () => {
             <Img2 src={pics3} />
             <Img2 src={pics4} />
             <Img2 src={pics5} /> */}
-            <P>
+            <P2>
               <Img2 src={pics2} />
-            </P>
+            </P2>
             <P>
               <Img2 src={pics3} />
             </P>
-            <P>
+            <P2>
               <Img2 src={pics4} />
-            </P>
-            <P>
+            </P2>
+            <P2>
               <Img2 src={pics5} />
-            </P>
+            </P2>
           </ImageBox>
           <ImageBox>
             {/* <Img2 src={Pic1} />
             <Img2 src={Pic2} />
             <Img2 src={Pic3} /> */}
-            <P>
+            <P2>
               <Img2 src={Pic1} />
-            </P>
+            </P2>
             <P>
               <Img2 src={Pic4} />
             </P>
             <P>
               <Img2 src={Pic2} />
             </P>
-            <P>
+            <P2>
               <Img2 src={Pic3} />
-            </P>
+            </P2>
           </ImageBox>
         </SecondContainer>
       </Holder>
@@ -83,20 +85,57 @@ const EditorsChoice = () => {
 
 export default EditorsChoice;
 
-const P = styled.div`
+const D = styled.div`
   width: 100%;
   height: 100%;
+  z-index: -1;
+  margin: 30px 0;
+  @media (max-width: 400px) {
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const P2 = styled.div`
+  width: 50%;
+  height: 10%;
   flex-grow: 1;
 
   @media (min-width: 767px) {
-    width: 50%;
-    height: 50%;
-    flex-shrink: 3;
+    width: 30%;
+    height: 30%;
+    flex-shrink: -5;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+const P = styled.div`
+  width: 50%;
+  height: 10%;
+  flex-grow: 1;
+
+  @media (min-width: 767px) {
+    width: 30%;
+    height: 30%;
+    flex-shrink: -5;
   }
 `;
 const Img2 = styled.img`
   width: 100%;
-  height: 100%;
+  height: 10%;
+  object-fit: cover;
   @media (min-width: 767px) {
     object-fit: cover;
     padding: 0 5px;
@@ -215,7 +254,7 @@ const SecondContainer = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  background-color: burlywood;
+  /* background-color: burlywood; */
   display: flex;
   justify-content: center;
   align-items: center;

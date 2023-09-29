@@ -22,7 +22,9 @@ const CardScreen = () => {
           <H1>Quests</H1>
           <p>Photo by okoye francis</p>
         </Textcontent> */}
-            <Img src={pics} alt="Quest" />
+            <D>
+              <Img src={pics} alt="Quest" />
+            </D>
           </Container>
           <SecondContainer>
             <B>
@@ -57,7 +59,9 @@ const CardScreen = () => {
               <H2>Licensing</H2>
               <p>Photo by okoye francis</p>
             </Textcontent> */}
-            <Img src={img} alt="Licensing" />
+            <D>
+              <Img src={img} alt="Licensing" />
+            </D>
           </Container1>
           <SecondContainer2>
             <B>
@@ -92,6 +96,25 @@ const CardScreen = () => {
 
 export default CardScreen;
 
+const D = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: 30px 0;
+  @media (max-width: 400px) {
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+`;
 const Button1 = styled.button`
   background-color: #000000;
   color: white;
@@ -243,10 +266,16 @@ const Box2 = styled.div`
 
 const Box = styled.div`
   width: 100%;
+  margin-bottom: 40px;
 `;
 
 const B = styled.div`
   width: 90%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* background-color: gray; */
   display: flex;
   /* flex-wrap: wrap; */
@@ -267,6 +296,8 @@ const SecondContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  gap: 30px;
+  /* background-color: green; */
 
   /* flex-wrap: wrap; */
 `;

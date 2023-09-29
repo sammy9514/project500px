@@ -1,16 +1,32 @@
-import react from "react";
+import react, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
+import { useColorChange } from "../Common/useColor";
+import { useGlobalContext } from "../Common/useContext";
+import { PiToggleLeftFill, PiToggleRightFill } from "react-icons/pi";
 
 interface MenuBarProps {
   closeMenu: () => void;
 }
 
 export const MenuBar: React.FC<MenuBarProps> = ({ closeMenu }) => {
+  let [on, off] = useState(false);
+
+  const toggle = () => {
+    off(!on);
+  };
+
+  // const [dark, setDark] = useState(false);
+  // const colorChange = () => {
+  //   setDark(!dark);
+  // };
+
+  const { colorChange, dark } = useColorChange();
+  const { isBoolean, toggleBoolean } = useGlobalContext();
   return (
     <div>
-      <Container>
-        <Top>
+      <Container color={isBoolean ? "#282828" : "white"}>
+        <Top color={isBoolean ? "white" : "black"}>
           <Wrap_1>
             <Logo>
               <svg
@@ -31,7 +47,7 @@ export const MenuBar: React.FC<MenuBarProps> = ({ closeMenu }) => {
             </Icon>
           </Wrap_1>
         </Top>
-        <Bottom>
+        <Bottom color={isBoolean ? "white" : "black"}>
           <Wrap_2>
             <P>
               <p>Award Winners</p>
@@ -44,6 +60,18 @@ export const MenuBar: React.FC<MenuBarProps> = ({ closeMenu }) => {
               <p>Create Stories</p>
               <p>Blog</p>
               <p style={{ paddingTop: "14px" }}>Log in / Sign up</p>
+              <Toggle
+                onClick={() => {
+                  toggle();
+                  toggleBoolean();
+                }}
+              >
+                {on ? (
+                  <PiToggleRightFill style={{ color: "dodgerblue" }} />
+                ) : (
+                  <PiToggleLeftFill />
+                )}
+              </Toggle>
             </P>
 
             <Foot></Foot>
@@ -65,6 +93,15 @@ export const MenuBar: React.FC<MenuBarProps> = ({ closeMenu }) => {
 // const Container = styled.div`
 
 // `
+
+const Toggle = styled.div`
+  font-size: 60px;
+  color: gray;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+`;
 
 const Foot = styled.div``;
 
@@ -105,6 +142,7 @@ const Bottom = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  color: ${(props) => props.color};
   /* align-items: center; */
 `;
 
@@ -114,12 +152,13 @@ const Top = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.color};
 `;
 
 const Container = styled.div`
   width: 100%;
   min-height: 100%;
-  background-color: white;
+  background-color: ${(props) => props.color};
   position: fixed;
   top: 0;
   left: 0;

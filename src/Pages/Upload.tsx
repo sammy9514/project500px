@@ -41,7 +41,7 @@ const Upload = () => {
                 cursor="cursor"
                 bg="red"
                 style={{
-                  transform: "scale(0.4)",
+                  transform: "scale(1)",
                   transition: "350ms ease-in-out infinte",
                 }}
               >
